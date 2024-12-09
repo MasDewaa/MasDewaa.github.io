@@ -1,62 +1,67 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var typed = new Typed('#typed', {
     stringsElement: '#typed-strings',
     typeSpeed: 40,
-    backSpeed: 40,
+    backSpeed: 50,
     startDelay: 1000,
     loop: false,
     loopCount: Infinity,
-    onBegin: function(self) {
+    onBegin: function (self) {
       prettyLog('onBegin ' + self);
     },
-    onComplete: function(self) {
+    onComplete: function (self) {
       prettyLog('onComplete ' + self);
+      // Menampilkan gambar setelah animasi selesai
+      var imageContainer = document.getElementById('image-container');
+      if (imageContainer) {
+        imageContainer.style.display = 'block';
+      }
     },
-    preStringTyped: function(pos, self) {
+    preStringTyped: function (pos, self) {
       prettyLog('preStringTyped ' + pos + ' ' + self);
     },
-    onStringTyped: function(pos, self) {
+    onStringTyped: function (pos, self) {
       prettyLog('onStringTyped ' + pos + ' ' + self);
     },
-    onLastStringBackspaced: function(self) {
+    onLastStringBackspaced: function (self) {
       prettyLog('onLastStringBackspaced ' + self);
     },
-    onTypingPaused: function(pos, self) {
+    onTypingPaused: function (pos, self) {
       prettyLog('onTypingPaused ' + pos + ' ' + self);
     },
-    onTypingResumed: function(pos, self) {
+    onTypingResumed: function (pos, self) {
       prettyLog('onTypingResumed ' + pos + ' ' + self);
     },
-    onReset: function(self) {
+    onReset: function (self) {
       prettyLog('onReset ' + self);
     },
-    onStop: function(pos, self) {
+    onStop: function (pos, self) {
       prettyLog('onStop ' + pos + ' ' + self);
     },
-    onStart: function(pos, self) {
+    onStart: function (pos, self) {
       prettyLog('onStart ' + pos + ' ' + self);
     },
-    onDestroy: function(self) {
+    onDestroy: function (self) {
       prettyLog('onDestroy ' + self);
     }
   });
 
-  document.querySelector('.toggle').addEventListener('click', function() {
+  document.querySelector('.toggle').addEventListener('click', function () {
     typed.toggle();
   });
-  document.querySelector('.stop').addEventListener('click', function() {
+  document.querySelector('.stop').addEventListener('click', function () {
     typed.stop();
   });
-  document.querySelector('.start').addEventListener('click', function() {
+  document.querySelector('.start').addEventListener('click', function () {
     typed.start();
   });
-  document.querySelector('.reset').addEventListener('click', function() {
+  document.querySelector('.reset').addEventListener('click', function () {
     typed.reset();
   });
-  document.querySelector('.destroy').addEventListener('click', function() {
+  document.querySelector('.destroy').addEventListener('click', function () {
     typed.destroy();
   });
-  document.querySelector('.loop').addEventListener('click', function() {
+  document.querySelector('.loop').addEventListener('click', function () {
     toggleLoop(typed);
   });
 
@@ -71,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fadeOut: true,
     loop: true
   });
-  document.querySelector('.loop2').addEventListener('click', function() {
+  document.querySelector('.loop2').addEventListener('click', function () {
     toggleLoop(typed2);
   });
 

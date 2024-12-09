@@ -51,6 +51,17 @@ p{
 
 
 }
+#image-slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
 
 @keyframes animate {
     to{
@@ -287,4 +298,58 @@ p{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#image-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Display the first slide by default */
+#image-slider .slide:first-child {
+  display: block;
+}
+
+/* Style navigation controls */
+#image-slider .prev, #image-slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#image-slider .prev {
+  left: 10px;
+}
+
+#image-slider .next {
+  right: 10px;
+}
+
+/* Navigation controls hover effect */
+#image-slider .prev:hover, #image-slider .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
